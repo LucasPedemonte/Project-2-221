@@ -112,6 +112,7 @@ const TaskDialog = ({ show, handleClose, handleSave, taskData, tasks }) => {
                 </Form.Control.Feedback>
               </Form.Group>
             )}
+            <Form.Label>Description</Form.Label>
             <Form.Group
               controlId="description"
               style={{ marginBottom: "15px" }}
@@ -183,14 +184,22 @@ const TaskDialog = ({ show, handleClose, handleSave, taskData, tasks }) => {
             className="btn-primary"
             style={{ width: "100px" }}
           >
-            {taskData ? "Update" : "Add"}
+            {taskData ? (
+              <>
+                <i class="fa-solid fa-pen-to-square"></i> Edit
+              </>
+            ) : (
+              <>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+              </>
+            )}
           </Button>
           <Button
             variant="secondary"
             onClick={handleClose}
             className="btn-danger"
           >
-            Cancel
+            <i class="fa fa-times-circle" aria-hidden="true"></i>Cancel
           </Button>
         </Modal.Footer>
       </Modal>
