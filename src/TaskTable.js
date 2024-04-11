@@ -1,7 +1,7 @@
 // TaskTable.js
 import React from "react";
 import { Button } from "react-bootstrap";
-import { toast } from "react-toastify"; // Remove ToastContainer import
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function formatDate(dateString) {

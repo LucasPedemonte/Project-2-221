@@ -1,4 +1,3 @@
-// TaskDialog.js
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
@@ -33,7 +32,6 @@ const TaskDialog = ({ show, handleClose, handleSave, taskData, tasks }) => {
 
   const validateForm = () => {
     let newErrors = {};
-    // Title validation (only for new tasks, as editing doesn't include title change)
     if (!taskData) {
       if (!taskTitle.trim()) {
         newErrors.taskTitle = "Title is required";
@@ -46,18 +44,13 @@ const TaskDialog = ({ show, handleClose, handleSave, taskData, tasks }) => {
       }
     }
 
-    // Description validation
     if (!description.trim()) {
       newErrors.description = "Description is required";
     }
 
-    // Deadline validation
     if (!deadline || isNaN(deadline.getTime())) {
-      // Checks if deadline is not set or invalid
       newErrors.deadline = "Deadline is required";
     }
-
-    // Priority validation - assuming the default value "Medium" is acceptable, no need to check
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -65,7 +58,6 @@ const TaskDialog = ({ show, handleClose, handleSave, taskData, tasks }) => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      // Extract the date part without considering the time
       const deadlineDate = deadline.toISOString().split("T")[0];
 
       handleSave({

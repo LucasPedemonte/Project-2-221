@@ -57,13 +57,13 @@ function App() {
         <div>
           <button
             type="button"
-            className="btn btn" // Removed btn-primary to override the background color
+            className="btn btn"
             onClick={handleShowAddDialog}
             style={{
               width: "110px",
               backgroundColor: "#238ce5",
               color: "white",
-            }} // Adjusted background color and text color
+            }}
           >
             <i className="fas fa-plus-circle"></i> Add
           </button>
@@ -83,7 +83,7 @@ function App() {
         handleClose={handleCloseDialog}
         handleSave={handleSaveTask}
         taskData={currentTask}
-        tasks={tasks} // Pass tasks to TaskDialog
+        tasks={tasks}
       />
     </div>
   );
